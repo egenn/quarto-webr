@@ -270,4 +270,17 @@ globalThis.qwebrExecuteCode = async function (
         // Revert to the initial code cell state
         elements.runButton.innerHTML = '<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>';
     }
+
+    // Reveal hidden element
+    if (options.reveals) {
+        // Reveal the element by removing the 'hidden' class
+        const toreveal = document.getElementById(options.reveals);
+        toreveal.classList.remove('hidden');
+        toreveal.style.opacity = 0; // Start invisible
+        toreveal.style.transition = "opacity 1s ease-in-out"; // Set 1s transition
+        setTimeout(function () {
+            toreveal.style.opacity = 1; // Fade in to fully visible
+        }, 10); // Wait 10 milliseconds to avoid initial flicker
+    }
+    
 }
