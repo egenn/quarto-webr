@@ -274,6 +274,8 @@ globalThis.qwebrExecuteCode = async function (
     // Reveal hidden elements that had class 'hidden' automatically added to them
     // by listed in the 'unveil' option
     if (options.unveil) {
+        // Scroll to the bottom of the page
+        window.scrollTo(0, document.body.scrollHeight);
         // Reveal the element by removing the 'hidden' class
         const toreveal = document.getElementById(options.unveil);
         toreveal.classList.remove('hidden');
