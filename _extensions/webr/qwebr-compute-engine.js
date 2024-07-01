@@ -333,4 +333,19 @@ globalThis.qwebrExecuteCode = async function (
         // Revert to the initial code cell state
         elements.runButton.innerHTML = '<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>';
     }
+
+    // Unveil hidden elements that had 'hidden' class added to them during cell 
+    // initialization by being listed under 'unveils'
+    if (options.unveils) {
+        // Scroll to the bottom of the page
+        window.scrollTo(0, document.body.scrollHeight);
+        // Unveil the element by removing the 'hidden' class
+        const toreveal = document.getElementById(options.unveils);
+        toreveal.classList.remove('hidden');
+        toreveal.style.opacity = 0; // Start invisible
+        toreveal.style.transition = "opacity 1s ease-in-out"; // Set 1s transition
+        setTimeout(function () {
+            toreveal.style.opacity = 1; // Fade in to fully visible
+        }, 10); // Wait 10 milliseconds to avoid initial flicker
+    }
 }

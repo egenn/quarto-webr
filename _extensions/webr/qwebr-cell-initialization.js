@@ -16,6 +16,22 @@ const filteredEntries = qwebrCellDetails.filter(entry => {
   return ['output', 'setup'].includes(contextOption) || (contextOption == "interactive" && entry.options && entry.options.autorun === 'true');
 });
 
+// Make list with element IDs to be hidden by collecting all values passed to quarto 
+// `unveils` option
+const hiddenElements = qwebrCellDetails.filter(entry => {
+  return entry.options && entry.options.unveils;
+}).map(entry => {
+  return entry.options.unveils;
+});
+
+// Hide elements by adding the class `hidden` to them
+hiddenElements.forEach(elementId => {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.classList.add('hidden');
+  }
+});
+
 // Condition non-interactive cells to only be run after webR finishes its initialization.
 qwebrInstance.then(
   async () => {
