@@ -335,12 +335,12 @@ globalThis.qwebrExecuteCode = async function (
     }
 
     // Unveil hidden elements that had 'hidden' class added to them during cell 
-    // initialization by being listed under 'unveils'
-    if (options.unveils) {
+    // initialization by being listed under 'unveil'
+    if (options.unveil) {
         // Scroll to the bottom of the page
         window.scrollTo(0, document.body.scrollHeight);
         // Unveil the element by removing the 'hidden' class
-        const toreveal = document.getElementById(options.unveils);
+        const toreveal = document.getElementById(options.unveil);
         toreveal.classList.remove('hidden');
         toreveal.style.opacity = 0; // Start invisible
         toreveal.style.transition = "opacity 1s ease-in-out"; // Set 1s transition

@@ -17,11 +17,11 @@ const filteredEntries = qwebrCellDetails.filter(entry => {
 });
 
 // Make list with element IDs to be hidden by collecting all values passed to quarto 
-// `unveils` option
+// `unveil` option
 const hiddenElements = qwebrCellDetails.filter(entry => {
-  return entry.options && entry.options.unveils;
+  return entry.options && entry.options.unveil;
 }).map(entry => {
-  return entry.options.unveils;
+  return entry.options.unveil;
 });
 
 // Hide elements by adding the class `hidden` to them
