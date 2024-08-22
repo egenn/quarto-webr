@@ -1,6 +1,11 @@
+# Dev
+dev/
+
+# MacOS
+.DS_Store
+
 /.luarc.json
 *.luarc.json
-*.DS_Store
 webr-worker.js
 webr-serviceworker.js
 *.csv
@@ -9,4 +14,3 @@ docs/_site/*
 tests/_site/*
 *.html
 !_extensions/*/*
-dev/
